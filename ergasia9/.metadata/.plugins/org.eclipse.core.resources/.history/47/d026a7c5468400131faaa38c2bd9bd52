@@ -1,0 +1,11 @@
+package com.ergasia9.snk;
+
+public class Database {
+	
+	public Database(){
+		String username="root";
+		String password="admin";
+		
+		Connection conn= DriverManager.getConnection(url,username,password);
+	}
+}

@@ -1,0 +1,9 @@
+package com.ergasia9.snk;
+
+public class Database {
+	
+	public Database(){
+		String user="root";
+		String pass="admin";
+	}
+}

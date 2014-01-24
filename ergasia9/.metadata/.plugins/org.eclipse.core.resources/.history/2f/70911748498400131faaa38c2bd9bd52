@@ -1,0 +1,55 @@
+package com.ergasia9.snk;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
+
+public class Database {
+	Connection conn;
+	public Database(){
+		String username="root";
+		String password="admin";
+		String url="jdbc:mysql://127.0.0.1:3306/ergasia9?useUnicode=true&characterEncoding=UTF-8&";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			conn= DriverManager.getConnection(url,username,password);
+
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Αποτυχία επικοινωνίας με την βάση!");
+			e.printStackTrace();
+		}
+	}
+	
+	public String[] checkLogin(String us,String pass){
+		/*
+		 * elegxei an einai swsta ta stoixia tou login kai epistrefei to epipedo tou user px(ipalilos)
+		 */
+		String priv;
+		priv="0";
+		try {
+			PreparedStatement pS = conn.prepareStatement("SELECT * FROM users WHERE username=? AND password=?");
+			pS.setString(1, us);
+			pS.setString(2, pass);
+			ResultSet rs=pS.executeQuery();
+			while(rs.next())
+				priv=rs.getString("privilages");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			priv="0";
+		} catch (Exception e) {
+			e.printStackTrace();
+			priv="0";
+		}
+		
+		
+		return priv;
+	}
+}

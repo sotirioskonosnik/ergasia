@@ -1,0 +1,8 @@
+package com.ergasia9.snk;
+
+public class Database {
+	
+	public Database(){
+		
+	}
+}

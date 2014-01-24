@@ -1,0 +1,27 @@
+package com.ergasia9.snk;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Database d=new Database();
+		try {
+			Test frame = new Test();
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			Ipalilos frame = new Ipalilos();
+			frame.setVisible(false);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			Odigos frame = new Odigos();
+			frame.setVisible(false);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

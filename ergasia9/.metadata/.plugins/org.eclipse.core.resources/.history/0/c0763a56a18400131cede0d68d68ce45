@@ -1,0 +1,181 @@
+package com.ergasia9.snk;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.event.*;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JCheckBox;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JTextField;
+
+
+public class Ipalilos extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JButton button;
+	private JButton button_1;
+	int number_clicks = 0;
+	private JTextField textField_2;
+	
+	public Ipalilos() {
+		this.setTitle("йаятека упаккгкоу");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		JLabel label = new JLabel("\u0394\u03A9\u03A3\u0395 \u03A6\u03A5\u039B\u039F \u0395\u03A0\u0399\u0392\u0391\u03A4\u0397");
+		
+		JRadioButton radioButton = new JRadioButton("\u0391\u039D\u03A4\u03A1\u0391\u03A3");
+		
+		JRadioButton radioButton_1 = new JRadioButton("\u0393\u03A5\u039D\u0391\u0399\u039A\u0391");
+		
+		JLabel label_1 = new JLabel("\u0395\u03A0\u0399\u039B\u0395\u039E\u03A4\u0395 \u0395\u0399\u0394\u039F\u03A3 \u0395\u0399\u03A3\u0399\u03A4\u0397\u03A1\u0399\u039F\u03A5");
+		
+		JCheckBox checkBox = new JCheckBox("\u039A\u0391\u039D\u039F\u039D\u0399\u039A\u039F ");
+		
+		JCheckBox checkBox_1 = new JCheckBox("\u03A6\u039F\u0399\u03A4\u0399\u03A4\u0399\u039A\u039F");
+		
+		JCheckBox checkBox_2 = new JCheckBox("\u03A0\u039F\u039B\u03A5\u03A4\u0395\u03A7\u039D\u0399\u039A\u039F");
+		
+		JLabel label_2 = new JLabel("\u0394\u03A9\u03A3\u0395 \u039F\u039D\u039F\u039C\u0391 \u0395\u03A0\u0399\u0392\u0391\u03A4\u0397");
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		
+		JLabel label_3 = new JLabel("\u0394\u03A9\u03A3\u0395 \u0395\u03A0\u0399\u0398\u0395\u03A4\u039F \u0395\u03A0\u0399\u0392\u0391\u03A4\u0397");
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		
+		JLabel label_4 = new JLabel("\u0394\u03A9\u03A3\u0395 \u0391\u03A1\u0399\u0398\u039C\u039F \u0398\u0395\u03A3\u0395\u03A9\u039D");
+		
+		JButton button = new JButton("+");
+		button.setToolTipText("пяосхесе");
+		button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		button.addActionListener(new EnableButton());
+		JButton button_1 = new JButton("-");
+		button.setToolTipText("ажаияесе");
+		button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		button.addActionListener(new Enablebutton);
+		
+		JLabel label_5 = new JLabel("");
+		
+		textField_2= new JTextField();
+		textField_2.setColumns(25);
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(32)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(label_4)
+						.addComponent(label_3)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addComponent(label_1)
+								.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+									.addComponent(checkBox_1)
+									.addComponent(checkBox)
+									.addComponent(checkBox_2)))
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+									.addComponent(label, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+									.addComponent(label_2))
+								.addGap(18)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(radioButton)
+										.addGap(18)
+										.addComponent(radioButton_1))
+									.addComponent(textField, GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+									.addComponent(textField_1)
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(button)
+										.addPreferredGap(ComponentPlacement.UNRELATED)
+										.addComponent(button_1)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addGap(64)
+												.addComponent(label_5))
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))))))
+					.addContainerGap(73, Short.MAX_VALUE))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(label)
+						.addComponent(radioButton)
+						.addComponent(radioButton_1))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(label_1)
+						.addComponent(checkBox))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(checkBox_1)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(checkBox_2)
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(label_2)
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(label_3)
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(label_4)
+						.addComponent(button)
+						.addComponent(button_1)
+						.addComponent(label_5)
+						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(24, Short.MAX_VALUE))
+		);
+		contentPane.setLayout(gl_contentPane);
+	}
+	
+	public class EnableButton implements ActionListener
+	{
+	public void actionPerformed(ActionEvent e)
+	{
+		number_clicks++;
+		textField_2.setText("ои хесеис еимаи " + number_clicks + " циа йяатгсг");
+		
+		
+		
+	}
+	public class Enable implements ActionListener
+	{
+	public void actionPerformed(ActionEvent e)
+	{
+		number_clicks++;
+		textField_2.setText("ои хесеис еимаи " + number_clicks + " циа йяатгсг");
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	}
+	}
+

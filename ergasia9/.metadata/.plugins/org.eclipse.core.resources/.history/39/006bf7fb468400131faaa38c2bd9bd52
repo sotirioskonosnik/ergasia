@@ -1,0 +1,22 @@
+package com.ergasia9.snk;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+
+public class Database {
+	
+	public Database(){
+		String username="root";
+		String password="admin";
+		String url="jdbc:mysql://127.0.0.1:3306/ergasia9?useUnicode=true&characterEncoding=UTF-8&";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			Connection conn= DriverManager.getConnection(url,username,password);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

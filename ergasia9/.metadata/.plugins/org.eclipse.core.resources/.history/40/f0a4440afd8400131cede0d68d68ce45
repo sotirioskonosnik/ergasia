@@ -1,0 +1,88 @@
+package com.ergasia9.snk;
+
+
+import javax.swing.JFrame;
+
+import javax.swing.JOptionPane;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import javax.swing.JPasswordField;
+import java.awt.event.ActionEvent;
+
+public class Test extends JFrame {
+	private JTextField username;
+	private JPasswordField password;
+	Database db=new Database();
+
+	
+	public Test() {
+		this.setTitle("LOGIN");
+		this.setBounds(0, 0, 250, 238);
+		
+		this.setResizable(false);
+		getContentPane().setLayout(null);
+		
+		JButton btnNewButton = new JButton("Login");
+		btnNewButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
+			}
+		});
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				String priv=db.checkLogin(username.getText(),password.getText());
+				try {
+					if(priv.equals("3")) {
+						Odigos Odig=new Odigos();     //Ã¡” ≈Ã÷¡Õ…∆≈… ‘«Õ  ¡—‘≈À¡ œƒ«√œ’
+						Odig.setVisible(true);
+						Test frame = new Test();
+						frame.setVisible(false);
+											
+					}else if(priv.equals("1")){
+						Ipalilos Ipal=new Ipalilos();    //Ã¡” ≈Ã÷¡Õ…∆≈… ‘«Õ  ¡—‘≈À¡ ‘œ’ ’–¡ÀÀ«Àœ’
+						Ipal.setVisible(true);
+						
+					}else if(priv.equals("2")){
+						Admin Ad=new Admin();
+						Ad.setVisible(true);
+						
+					}else{
+						JOptionPane.showMessageDialog(null, "À‹ËÔÚ ÛÙÔÈ˜Âﬂ·!");
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		btnNewButton.setBounds(75, 180, 100, 20);
+		getContentPane().add(btnNewButton);
+		
+		username = new JTextField();
+		username.setBounds(106, 31, 86, 20);
+		getContentPane().add(username);
+		username.setColumns(10);
+		
+		password = new JPasswordField();
+		password.setBounds(106, 77, 86, 20);
+		getContentPane().add(password);
+		password.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Username");
+		lblNewLabel.setBounds(21, 34, 60, 14);
+		getContentPane().add(lblNewLabel);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setBounds(21, 80, 75, 14);
+		getContentPane().add(lblPassword);
+		
+		
+	}
+}

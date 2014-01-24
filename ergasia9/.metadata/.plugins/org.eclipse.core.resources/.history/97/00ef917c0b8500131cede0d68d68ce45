@@ -1,0 +1,182 @@
+package com.ergasia9.snk;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JTextField;
+import javax.swing.JScrollBar;
+import javax.swing.JButton;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
+import java.sql.SQLException;
+
+
+public class Odigos extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private int id;
+	
+
+	public Odigos() {
+		this.setTitle("ΚΑΡΤΕΛΑ ΟΔΗΓΟΥ");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		JLabel lblNewLabel = new JLabel("\u0391\u03A1\u0399\u0398\u039C\u039F\u03A3 \u03A5\u03A0\u0391\u039B\u039B\u0397\u039B\u039F\u03A5");
+		
+		JLabel lblNewLabel_1 = new JLabel("\u0394\u03A1\u039F\u039C\u039F\u039B\u039F\u0393\u0399\u039F");
+		
+		JLabel lblNewLabel_2 = new JLabel("\u0391\u03A1\u0399\u0398\u039C\u039F\u03A3 \u0398\u0395\u03A3\u0395\u03A9\u039D");
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		
+		JButton btnNewButton = new JButton("\u039A\u0391\u03A4\u0391\u03A7\u03A9\u03A1\u0397\u03A3\u0397");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+		public void mouseClicked(MouseEvent arg0) {
+				String Arip=textField.getText();
+				String Dromo=textField_1.getText();
+				String Artheseis=textField_2.getText();
+				String action;
+				
+				action="update";
+					
+				
+		}
+		});
+		
+		private void save(String textField ,String textField_1 ,String textField_2,String action){
+			/*
+			 * apothikeuei ta stoixia i tis allages sthn vash kai emfanizei ta katallhla minimata
+			 */
+			String query;
+			if(action.equals("insert"))
+				query="insert into odigoi(onoma,eponimo,username,password,oxima) values(?,?,?,?,?)";
+			else
+				query="update odigoi set onoma=?, eponimo=? , username=?,password=?,oxima=? WHERE id=?";
+			try {
+				con.pS=con.conn.prepareStatement(query);
+				con.pS.setString(1, textField);
+				con.pS.setString(2, textField_1);
+				con.pS.setString(3, textField_2)
+				if(action.equals("update"))
+					con.pS.setInt(6, id);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			if(con.makeQuery(query)){
+				JOptionPane.showMessageDialog(null, "Αποθηκεύτηκε!");
+				if(id!=0)
+					dispose();
+				else{
+					textField.setText("");
+					textField_1.setText("");
+					textField_2.setText("");
+					
+				}
+			}else{
+				JOptionPane.showMessageDialog(null, "Κάτι πήγε στραβά παρακαλώ δοκιμάστε αργότερα!");
+			}
+				
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		btnNewButton.setBounds(101, 167, 125, 40);
+		getContentPane().add(btnNewButton);
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(24)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblNewLabel)
+						.addComponent(lblNewLabel_1)
+						.addComponent(lblNewLabel_2))
+					.addGap(101)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(btnNewButton, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(textField_2, Alignment.TRAILING)
+						.addComponent(textField_1, Alignment.TRAILING)
+						.addComponent(textField, Alignment.TRAILING))
+					.addContainerGap(101, Short.MAX_VALUE))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel)
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(32)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblNewLabel_1)
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(31)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_2))
+					.addGap(65)
+					.addComponent(btnNewButton)
+					.addContainerGap(30, Short.MAX_VALUE))
+		);
+		contentPane.setLayout(gl_contentPane);
+		
+		
+	
+	
+	}
+}
